@@ -37,8 +37,8 @@
   margin-bottom: 120px;
   margin-top: 40px;
 }
-.dark-theme .shopping-ttl{
-  color: #FFF;
+.dark-theme .shopping-ttl {
+  color: #fff;
 }
 
 .dark-theme .shopping-ttl {
@@ -48,9 +48,9 @@
 .shopping-book-image {
   width: 100px;
   height: 142px;
-  position: absolute;
-  left: 14px;
-  top: 14px;
+  position: relative;
+  top: -14px;
+  left: -10px;
   border-radius: 8px;
 }
 .shopping-book-title {
@@ -82,7 +82,6 @@
   overflow: hidden;
   color: #111;
   text-overflow: ellipsis;
-  white-space: nowrap;
   font-family: DM Sans;
   font-size: 14px;
   font-style: normal;
@@ -105,34 +104,24 @@
 }
 
 .shopping-book-ul {
-  border-radius: 16px;
-  border: 2px solid rgba(79, 46, 232, 0.4);
-  background: #fff;
   display: flex;
-  width: 335px;
-  height: 170px;
-  align-items: flex-start;
-  gap: 20px;
-  flex-shrink: 0;
-  list-style-type: none;
-  position: relative;
   flex-direction: column;
-  overflow: hidden;
-  display: none;
+  align-items: center;
+  gap: 20px;
 }
 
 .shopping-delete-btn {
   width: 28px;
   height: 28px;
   position: absolute;
-  right: 24px;
-  top: 24px;
+  top: 14px;
+  right: 14px;
   border-radius: 50%;
   border: none;
   background-color: #4f2ee8;
   stroke: #fff;
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  align-items: center;
+
   background-image: url(/src/img/trash.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -207,8 +196,6 @@
   .shopping-book-image {
     width: 116px;
     height: 165px;
-    left: 24px;
-    top: 24px;
   }
   .shopping-book-genre {
     width: 508px;
@@ -280,11 +267,6 @@
     height: 53px;
   }
 
-  .shopping-book-image {
-    position: absolute;
-    left: 24px;
-    top: 24px;
-  }
   .amazon-kindle {
     display: flex;
     align-items: center;
@@ -301,4 +283,15 @@
     width: 28px;
     height: 27px;
   }
+}
+.shopping-book-li {
+  display: flex;
+  position: relative;
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  background: #fff;
+
+  width: 287px;
+  height: 110px;
+  padding: 30px 24px;
 }

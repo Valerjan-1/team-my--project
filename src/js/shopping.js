@@ -1,157 +1,75 @@
-import { getCategoryList } from './images-api';
+document.addEventListener('DOMContentLoaded', function () {
+  displayShoppingList(); // Вызываем функцию для отображения книг при загрузке страницы
+});
 
-const bookList = document.querySelector('.shopping-book-ul');
-
-const deleteBtn = document.querySelector('.shopping-delete-btn');
-
-const BOOKS_STORAGE = 'shoppingList';
-
-// function getCard() {
-//   const localBooks = JSON.parse(localStorage.getItem('shoppingList'))
-//   return bookList.innerHTML = localBooks.map(({ id, title, author, book_image, description, buy_links }) => {
-//     `
-//         <ul>
-//        <li>
-//        < class="shopping-delete-btn">
-//         <img
-//           class="shopping-list-svg"
-//           width="16"
-//           height="16"
-//           src="..//img/trash.png"
-//         />
-  
-//       </button>
-//     </li>
-//     <li><img class="shopping-book-image" src= ${book_image} alt=${title} /></li>
-//     <li class="shopping-book-title" >${title} ${id}</li>
-//     <li class="shopping-book-descrip"><p>${description}</p></li>
-//     <li class="shopping-book-author">${author}</li>
-//     <li class="amazon-kindle">
-//       < class= 'kindle-link' href='${buy_links}'><img
-//         class="kindle-pic"
-//         src="../img/kindle.png"
-//         style="background-color: transparent"
-//         alt="kindle"
-//       /> </a>
-//     </li></ul>`
-//   }).join('');
-  
-// }
-// console.log(getCard())
-if (localStorage.getItem('shoppingList') !== null) {
-  const list = document.querySelector('.shopping-book-ul');
-  const empty = document.querySelector('.shopping-list-empty');
-  empty.style.display = 'none'
-  list.style.display = 'flex'
-  getCard()
-  
+function getShoppingList() {
+  // Получаем данные из локального хранилища
+  const shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
+  return shoppingList;
 }
-function getCard() {
-  // const emptyList = document.querySelector('.shopping-list-empty');
-  const localBooks = JSON.parse(localStorage.getItem('shoppingList'));
-  
+
+function displayShoppingList() {
+  const shoppingList = getShoppingList();
   const bookList = document.querySelector('.shopping-book-ul');
-  console.log(bookList);
-  bookList.innerHTML = localBooks.map(({ id, title, author, book_image, description, buy_links }) => `
-    <ul>
-      <li>
-        <button class="shopping-delete-btn">
-          <img
-            class="shopping-list-svg"
-            width="16"
-            height="16"
-            src="..//img/trash.png"
-          />
-        </button>
-      </li>
-      <li><img class="shopping-book-image" src="${book_image}" alt="${title}" /></li>
-      <li class="shopping-book-title">${title} ${id}</li>
-      <li class="shopping-book-descrip"><p>${description}</p></li>
-      <li class="shopping-book-author">${author}</li>
-      <li class="amazon-kindle">
-        <a class='kindle-link' href='${buy_links}'>
-          <img
-            class="kindle-pic"
-            src="../img/kindle.png"
-            style="background-color: transparent"
-            alt="kindle"
-          />
-        </a>
-      </li>
-    </ul>
-  `).join('')
+  const emptyListMessage = document.querySelector('.shopping-list-empty');
+
+  // Проверяем наличие сохраненных книг в локальном хранилище
+  if (shoppingList.length > 0) {
+    bookList.innerHTML = shoppingList
+      .map(
+        ({ id, title, author, image, description, buy_links }) => `
+          <li class="shopping-book-li">
+            <button class="shopping-delete-btn" data-book-id="${id}">
+              <img
+                class="shopping-list-svg"
+                width="16"
+                height="16"
+                src="../img/trash.png"
+              />
+            </button>
+            <img class="shopping-book-image" src="${image}" alt="${title}" />
+            <div class="shopping-text-container">
+              <p class="shopping-book-title">${title}</p>
+              <p class="shopping-book-descrip">${description}</p>
+              <p class="shopping-book-author">${author}</p>
+            </div>
+            <div class="amazon-kindle">
+              <a class='kindle-link' href='${buy_links}'>
+                <img
+                  class="kindle-pic"
+                  src="../img/kindle.png"
+                  style="background-color: transparent"
+                  alt="kindle"
+                />
+              </a>
+            </div>
+          </li>
+      `
+      )
+      .join('');
+
+    // Добавляем обработчик события для кнопок удаления
+    const deleteButtons = document.querySelectorAll('.shopping-delete-btn');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', handleDeleteButtonClick);
+    });
+
+    // Скрываем блок с пустым списком
+    emptyListMessage.style.display = 'none';
+  } else {
+    // Если список пуст, отображаем блок с сообщением о пустом списке
+    emptyListMessage.style.display = 'block';
+  }
 }
 
+function handleDeleteButtonClick(event) {
+  const bookId = event.currentTarget.getAttribute('data-book-id');
+  removeFromShoppingList(bookId);
+  displayShoppingList();
+}
 
-
-
-
-
-// function getFullCart() {
-//   const renderSavedBooks = JSON.parse(localStorage.getItem('shoppingList') ?? []);
-//   const markup = renderSavedBooks
-//   .map(
-//       ({
-//         id,
-//         book_image,
-//         title,
-//         description,
-//         author,
-//         amazon_product_url,
-//         genre,
-//         buy_links,
-//       }) =>
-//         `
-//         <ul>
-//        <li>
-//        < class="shopping-delete-btn">
-//         <img
-//           class="shopping-list-svg"
-//           width="16"
-//           height="16"
-//           src="..//img/trash.png"
-//         />
-  
-//       </button>
-//     </li>
-//     <li><img class="shopping-book-image" src= ${book_image} alt=${title} /></li>
-//     <li class="shopping-book-title" >${title} ${id}</li>
-//     <li class="shopping-book-genre">${genre}</li>
-//     <li class="shopping-book-descrip"><p>${description}</p></li>
-//     <li class="shopping-book-author">${author}</li>
-//     <li class="amazon-kindle">
-//      <a class= amazon-link, href = '${amazon_product_url}'><img
-//         class="amazon-pic"
-//         src="../img/amazon.png"
-//         style="background-color: transparent"
-//         alt="amazon"
-//       /> </a>
-//       < class= 'kindle-link' href='${buy_links}'><img
-//         class="kindle-pic"
-//         src="../img/kindle.png"
-//         style="background-color: transparent"
-//         alt="kindle"
-//       /> </a>
-//     </li></ul>`
-//     )
-//     .join('');
-//     return markup
-//     }
-
-// if (markup.length > 0) {
-//   bookList.innerHTML = markup;
-//   emptyList.hidden = 'true';
-// } else {
-//   emptyList;
-//   emptyList.hidden = 'false';
-// }
-
-
-// deleteBtn.addEventListener('click', deleteItem);
-
-// function deleteItem() {
-//   if (localStorage.contains(markup)) {
-//     localStorage.removeItem(markup);
-//   }
-//   return getFullCart, (emptyList.hidden = 'true');
-// }
+function removeFromShoppingList(bookId) {
+  const shoppingList = getShoppingList();
+  const updatedList = shoppingList.filter(book => book.id !== bookId);
+  localStorage.setItem('shoppingList', JSON.stringify(updatedList));
+}
