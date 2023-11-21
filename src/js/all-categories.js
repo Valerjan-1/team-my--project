@@ -174,3 +174,5 @@ function nameCategories(e) {
 //       .catch(err => console.log(err));
 //   }
 // }
+
+
