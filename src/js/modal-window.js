@@ -16,17 +16,26 @@ export function openModal(bookInfo) {
     .then(idBook => {
       const { title, author, book_image, description, buy_links, _id } = idBook;
       // byModal.innerHTML = ``;
+      console.log(buy_links);
+      const urlAmazon = buy_links[0].url;
+      const urlApple = buy_links[1].url;
       body.style.overflow = `hidden`;
       byModal.innerHTML = `
       <div class="modal-1">
       <span class="close" id="closeModalBtn">&times;</span>
         <div class="modal-content">
+        <div class="text-content-modal">
           <img src="${book_image}" class="modal-image" alt="${title}" />
-          <div class="text-content-modal">
+           <div class="title-name-content-modal">
             <h2 id="modalTitle" class="modal-title">${title}</h2>
             <p id="modalAuthor" class="modal-author">${author}</p>
-            <p id="modalDescription" class="modal-description">${description}</p>
-          </div>
+           </div> 
+        </div>
+            <p id="modalDescription" class="modal-description">${description}</p>    
+          <div>
+            <a href="${urlAmazon}"></a>
+            <a href="${urlApple}"></a>
+          </div>      
           <button id="modal-add-to-list" type="button" class="modal-button">ADD TO SHOPPING LIST
   </button>
         </div>
