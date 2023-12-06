@@ -16,14 +16,14 @@ export function openModal(bookInfo) {
     .then(idBook => {
       const { title, author, book_image, description, buy_links, _id } = idBook;
       // byModal.innerHTML = ``;
-      console.log(buy_links);
+      console.log(idBook);
       const urlAmazon = buy_links[0].url;
       const urlApple = buy_links[1].url;
       body.style.overflow = `hidden`;
       byModal.innerHTML = `
-      <div class="modal-1">
-      <span class="close" id="closeModalBtn">&times;</span>
+          <div class="modal-1">
         <div class="modal-content">
+        <img class="close" id="closeModalBtn" src="../img/x-close.png" alt="" />
         <div class="text-content-modal">
           <img src="${book_image}" class="modal-image" alt="${title}" />
            <div class="title-name-content-modal">
@@ -32,9 +32,9 @@ export function openModal(bookInfo) {
            </div> 
         </div>
             <p id="modalDescription" class="modal-description">${description}</p>    
-          <div>
-            <a href="${urlAmazon}"></a>
-            <a href="${urlApple}"></a>
+          <div class="link-container">
+            <a href="${urlAmazon}" target="_blank"><img src="../img/amazon.png" alt="" /></a>
+            <a href="${urlApple}" target="_blank"><img src="../img/kindle.png" alt="" /></a>
           </div>      
           <button id="modal-add-to-list" type="button" class="modal-button">ADD TO SHOPPING LIST
   </button>
