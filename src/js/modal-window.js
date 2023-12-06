@@ -21,25 +21,26 @@ export function openModal(bookInfo) {
       const urlApple = buy_links[1].url;
       body.style.overflow = `hidden`;
       byModal.innerHTML = `
-          <div class="modal-1">
-        <div class="modal-content">
-        <img class="close" id="closeModalBtn" src="../img/x-close.png" alt="" />
-        <div class="text-content-modal">
-          <img src="${book_image}" class="modal-image" alt="${title}" />
-           <div class="title-name-content-modal">
+    <div class="modal-1">
+      <div class="modal-content">
+        <div class="modal-content-container">
+         <img class="close" id="closeModalBtn" src="../img/x-close.png" alt="" />
+         <img src="${book_image}" class="modal-image" alt="${title}" />
+         <div class="text-content-modal">
             <h2 id="modalTitle" class="modal-title">${title}</h2>
             <p id="modalAuthor" class="modal-author">${author}</p>
-           </div> 
-        </div>
-            <p id="modalDescription" class="modal-description">${description}</p>    
-          <div class="link-container">
+            <p id="modalDescription" class="modal-description">${description}</p>
+          <div class="link-container">  
             <a href="${urlAmazon}" target="_blank"><img src="../img/amazon.png" alt="" /></a>
-            <a href="${urlApple}" target="_blank"><img src="../img/kindle.png" alt="" /></a>
-          </div>      
-          <button id="modal-add-to-list" type="button" class="modal-button">ADD TO SHOPPING LIST
-  </button>
-        </div>
-        </div>
+            <a href="${urlApple}" target="_blank"><img src="../img/kindle.png" alt="" /></a> 
+          </div>                
+         </div>      
+          
+         </div>      
+         <button id="modal-add-to-list" type="button" class="modal-button">ADD TO SHOPPING LIST
+         </button>
+      </div>
+    </div>
         
         `;
       const addToShoppingListBtn = document.getElementById('modal-add-to-list');

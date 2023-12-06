@@ -6,33 +6,33 @@ html {
   scroll-behavior: smooth;
 }
 
-/* #scroll-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    display: none;
-    width: 49px;
-    height: 49px;
-    border-radius: 50%;
-    background: #4F2EE8;
-    border: none;
-    overflow: hidden;
-} */
+#scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  display: none;
+  width: 49px;
+  height: 49px;
+  border-radius: 50%;
+  background: #4f2ee8;
+  border: none;
+  overflow: hidden;
+}
 
-/* .scroll-icon {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-} */
+.scroll-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
 
-/* #scroll-btn:hover .scroll-icon {
-    transform: translateY(-10px) scale(1.2);
+#scroll-btn:hover .scroll-icon {
+  transform: translateY(-10px) scale(1.2);
 }
 
 #scroll-btn:hover {
-    box-shadow: 0 0 20px rgb(79, 46, 232);
-} */
+  box-shadow: 0 0 20px rgb(79, 46, 232);
+}
 
 .close {
   color: #111;
@@ -40,6 +40,12 @@ html {
   top: 12px;
   right: 12px;
   float: right;
+}
+@media screen and (min-width: 768px) {
+  .close {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 .close:hover,
@@ -79,13 +85,15 @@ html {
   margin-right: auto;
   margin-top: 30px;
 }
-.text-content-modal {
-  display: flex;
-  width: 287px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
+@media screen and (min-width: 768px) {
+  .modal .modal-1 {
+    margin-top: 110px;
+  }
 }
+.text-content-modal {
+  width: 287px;
+}
+
 .title-name-content-modal {
   display: flex;
   flex-direction: column;
@@ -101,6 +109,22 @@ html {
   border-radius: 18px;
   border: 2px solid #111;
 }
+@media screen and (min-width: 768px) {
+  .modal-content {
+    padding: 40px;
+    width: 499px;
+    height: 385px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+@media screen and (min-width: 768px) {
+  .modal-content-container {
+    display: flex;
+    gap: 24px;
+  }
+}
 .link-container {
   display: flex;
   align-items: center;
@@ -112,7 +136,13 @@ html {
   height: 408px;
   border-radius: 8px;
 }
-
+@media screen and (min-width: 768px) {
+  .modal-image {
+    width: 192px;
+    height: 281px;
+    flex-shrink: 0;
+  }
+}
 .modal-title {
   color: #111;
   font-family: DM Sans;
@@ -121,19 +151,40 @@ html {
   font-weight: 700;
   line-height: 1.13;
   letter-spacing: -0.64px;
+  margin-top: 14px;
+  margin-bottom: 4px;
 }
-
+@media screen and (min-width: 768px) {
+  .modal-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 28px; /* 116.667% */
+    letter-spacing: -0.96px;
+  }
+}
 .modal-author {
   width: 287px;
   flex-shrink: 0;
   color: #b4afaf;
-  font-family: DM Sans;
+
   font-size: 12px;
   font-style: italic;
   font-weight: 400;
   line-height: 1.16;
   letter-spacing: -0.48px;
   margin-bottom: 18px;
+}
+@media screen and (min-width: 768px) {
+  .modal-author {
+    color: #b4afaf;
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+  }
 }
 
 .modal-description {
@@ -147,16 +198,39 @@ html {
   font-weight: 400;
   line-height: 1.29;
   letter-spacing: -0.56px;
-  margin-top: 18px;
+}
+@media screen and (min-width: 768px) {
+  .modal-description {
+    width: 279px;
+  }
 }
 
 .modal-button {
+  color: #111;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+
   border-radius: 40px;
   border: 2px solid #4f2ee8;
   padding: 14px 28px;
   display: block;
   margin: 0 auto;
   margin-top: 44px;
+}
+@media screen and (min-width: 768px) {
+  .modal-button {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 /* стилі для планшету */
