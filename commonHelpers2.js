@@ -1,4 +1,4 @@
-import"./assets/header-38fbb881.js";document.addEventListener("DOMContentLoaded",function(){l()});function p(){return JSON.parse(localStorage.getItem("shoppingList"))||[]}function l(){const t=p(),o=document.querySelector(".shopping-book-ul"),s=document.querySelector(".shopping-list-empty");t.length>0?(o.innerHTML=t.map(({id:i,title:e,author:c,image:a,description:g,buy_links:d})=>`
+import"./assets/header-01beb901.js";document.addEventListener("DOMContentLoaded",function(){l()});function p(){return JSON.parse(localStorage.getItem("shoppingList"))||[]}function l(){const t=p(),o=document.querySelector(".shopping-book-ul"),s=document.querySelector(".shopping-list-empty");t.length>0?(o.innerHTML=t.map(({id:i,title:e,author:c,image:a,description:g,buy_links:d})=>`
           <li class="shopping-book-li">
             <button class="shopping-delete-btn" data-book-id="${i}">
               <img
