@@ -1,23 +1,24 @@
-import"./assets/header-01beb901.js";import{a as y}from"./assets/vendor-26fe51b3.js";const B="https://books-backend.p.goit.global/";function C(t){if(!t.data)throw new Error("Invalid response format");return t.data}function f(t){throw t.response?new Error(`Request failed with status ${t.response.status}`):t.request?new Error("No response received from the server"):new Error(`Error setting up the request: ${t.message}`)}async function b(){try{const t=await y.get(`${B}books/category-list`);return C(t)}catch(t){f(t)}}async function D(){try{const t=await y.get(`${B}books/top-books`);return C(t)}catch(t){f(t)}}async function X(t){try{const e=await y.get(`${B}books/category?category=${t}`);return C(e)}catch(e){f(e)}}async function v(t){try{const e=await y.get(`${B}books/${t}`);return C(e)}catch(e){f(e)}}const E=document.querySelector(".book-category-list"),Q=document.querySelector("body"),u=document.querySelector(".modal");document.querySelector(".modal-1");const k=document.querySelector(".overley");u.style.display="none";function x(t){k.style.display="block",v(t).then(e=>{const{title:n,author:a,book_image:i,description:o,buy_links:c,_id:s}=e;console.log(e);const A=c[0].url,d=c[1].url;Q.style.overflow="hidden",u.innerHTML=`
-          <div class="modal-1">
-        <div class="modal-content">
-        <img class="close" id="closeModalBtn" src="../img/x-close.png" alt="" />
-        <div class="text-content-modal">
-          <img src="${i}" class="modal-image" alt="${n}" />
-           <div class="title-name-content-modal">
+import"./assets/header-f15b1df7.js";import{a as y}from"./assets/vendor-26fe51b3.js";const B="https://books-backend.p.goit.global/";function C(t){if(!t.data)throw new Error("Invalid response format");return t.data}function f(t){throw t.response?new Error(`Request failed with status ${t.response.status}`):t.request?new Error("No response received from the server"):new Error(`Error setting up the request: ${t.message}`)}async function b(){try{const t=await y.get(`${B}books/category-list`);return C(t)}catch(t){f(t)}}async function D(){try{const t=await y.get(`${B}books/top-books`);return C(t)}catch(t){f(t)}}async function X(t){try{const e=await y.get(`${B}books/category?category=${t}`);return C(e)}catch(e){f(e)}}async function v(t){try{const e=await y.get(`${B}books/${t}`);return C(e)}catch(e){f(e)}}const E=document.querySelector(".book-category-list"),Q=document.querySelector("body"),u=document.querySelector(".modal");document.querySelector(".modal-1");const k=document.querySelector(".overley");u.style.display="none";function x(t){k.style.display="block",v(t).then(e=>{const{title:n,author:a,book_image:i,description:o,buy_links:c,_id:s}=e;console.log(e);const A=c[0].url,d=c[1].url;Q.style.overflow="hidden",u.innerHTML=`
+    <div class="modal-1">
+      <div class="modal-content">
+        <div class="modal-content-container">
+         <img class="close" id="closeModalBtn" src="../img/x-close.png" alt="" />
+         <img src="${i}" class="modal-image" alt="${n}" />
+         <div class="text-content-modal">
             <h2 id="modalTitle" class="modal-title">${n}</h2>
             <p id="modalAuthor" class="modal-author">${a}</p>
-           </div> 
-        </div>
-            <p id="modalDescription" class="modal-description">${o}</p>    
-          <div class="link-container">
+            <p id="modalDescription" class="modal-description">${o}</p>
+          <div class="link-container">  
             <a href="${A}" target="_blank"><img src="../img/amazon.png" alt="" /></a>
-            <a href="${d}" target="_blank"><img src="../img/kindle.png" alt="" /></a>
-          </div>      
-          <button id="modal-add-to-list" type="button" class="modal-button">ADD TO SHOPPING LIST
-  </button>
-        </div>
-        </div>
+            <a href="${d}" target="_blank"><img src="../img/kindle.png" alt="" /></a> 
+          </div>                
+         </div>      
+          
+         </div>      
+         <button id="modal-add-to-list" type="button" class="modal-button">ADD TO SHOPPING LIST
+         </button>
+      </div>
+    </div>
         
         `;const r=document.getElementById("modal-add-to-list"),l=document.getElementById("closeModalBtn");l.addEventListener("click",S),r.addEventListener("click",p);function p(){const h=JSON.parse(localStorage.getItem("shoppingList"))||[],L=h.findIndex(U=>U.id===s);L===-1?(h.push({id:s,title:n,author:a,image:i,description:o,buy_links:c}),r.textContent="Remove from the shopping list"):(h.splice(L,1),r.textContent="Add to shopping list"),localStorage.setItem("shoppingList",JSON.stringify(h))}l.addEventListener("click",()=>{g(),S()});function g(){r.textContent==="Remove from the shopping list"&&localStorage.removeItem("shoppingList")}u.style.display="block"}).catch(e=>console.log(e))}u.addEventListener("click",function(t){t.target===u&&S()});E.addEventListener("click",O);function O(t){const e=t.target.id;x(e)}function S(){Q.style.overflow="scroll",u.style.display="none",k.style.display="none"}const P=document.querySelector(".all-categories"),N=document.querySelector(".book-category-list");document.querySelector("main");document.querySelector(".modal");const w=document.querySelector(".Books-best-sellers-text"),m=document.querySelector(".active-all-categories");m.classList.remove("inactive-all-categories");b().then(t=>{t.sort((e,n)=>e.list_name>n.list_name?1:-1).map(e=>{const{list_name:n}=e;return P.insertAdjacentHTML("beforeend",`<li><a class="list-category"href="">${n}</a></li>`)}).join("")}).catch(t=>console.log(t));P.addEventListener("click",T);function T(t){t.preventDefault();const e=t.target.textContent;if(e==="All categories"){m.classList.remove("inactive-all-categories"),m.classList.add("active-all-categories"),w.innerHTML="Best Sellers";const n=" Books";let a=document.createElement("span");a.classList.add("Books-best-sellers-text-span"),a.textContent=n,w.appendChild(a),D().then(i=>{const o=document.querySelector(".book-category-list");i.forEach(c=>{const s=document.createElement("h3");s.textContent=`${c.list_name}`.toUpperCase(),s.className="bs-h3";const A=document.createElement("ul");A.className="bs-book-list",c.books.forEach(l=>{const p=document.createElement("li");p.className="bs-book-item",l._id,l.title,l.author,l.book_image,l.description,l.buy_links[1],p.innerHTML=`
           <img id="${l._id}" src="${l.book_image}" alt="${l.title}" />
