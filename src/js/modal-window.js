@@ -4,7 +4,7 @@ const listCategory = document.querySelector(`.book-category-list`);
 // const listCategory = document.querySelector(`.book-category-list`);
 const body = document.querySelector(`body`);
 const byModal = document.querySelector(`.modal`);
-const byModalOne = document.querySelector(`.modal-1`);
+const idList = document.querySelector(`.bs-book-item`);
 const overley = document.querySelector(`.overley`);
 
 byModal.style.display = `none`;
@@ -113,12 +113,17 @@ function deleteToShoppingList() {
 listCategory.addEventListener('click', openToModal);
 
 function openToModal(e) {
-  const id = e.target.id;
+  const bookItem = e.target.closest('.bs-book-item');
 
-  openModal(id);
+  if (bookItem) {
+    const id = bookItem.id;
+    openModal(id);
+  }
 }
 function closeModal() {
   body.style.overflow = `scroll`;
   byModal.style.display = 'none';
   overley.style.display = `none`;
 }
+
+// export { openToModal };

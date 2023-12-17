@@ -12,7 +12,7 @@
   font-weight: 700;
   line-height: 38px;
   letter-spacing: -1.28px;
-  margin-top: 40px;
+
   margin-bottom: 40px;
   margin-left: 20px;
 }
@@ -21,8 +21,8 @@
   color: #4f2ee8;
 }
 
-.dark-theme .Books-best-sellers-text{
-color: rgba(255, 255, 255, 0.60);
+.dark-theme .Books-best-sellers-text {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .bs-h3 {
@@ -40,7 +40,6 @@ color: rgba(255, 255, 255, 0.60);
 }
 
 .bs-book-image {
-
   width: 335px;
   height: 485px;
   border-radius: 8px;
@@ -49,7 +48,6 @@ color: rgba(255, 255, 255, 0.60);
   margin-bottom: 14px;
   position: relative;
   max-width: 100%;
-
 }
 
 .book-category-list {
@@ -74,17 +72,16 @@ color: rgba(255, 255, 255, 0.60);
   justify-content: space-between;
 }
 .bs-book-list-fil {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
 }
 
 /* li */
 .bs-book-item {
-
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -92,13 +89,12 @@ color: rgba(255, 255, 255, 0.60);
   height: 100%;
 }
 .bs-book-item-fil {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 8px;
-    height: 100%;
-    width: 335px;
-
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  height: 100%;
+  width: 335px;
 }
 
 .title-book {
@@ -119,15 +115,15 @@ color: rgba(255, 255, 255, 0.60);
   margin-bottom: 4px;
 }
 
-.dark-theme .title-book{
-color: #FFF;
+.dark-theme .title-book {
+  color: #fff;
 }
 
 .author-book {
   width: 335px;
   display: inline-block;
   overflow: hidden;
-  color: #B4AFAF;
+  color: #b4afaf;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: DM Sans;
@@ -150,7 +146,7 @@ color: #FFF;
   margin-bottom: 40px;
 }
 
-.dark-theme .bs-buttom{
+.dark-theme .bs-buttom {
   background: #202024;
 }
 
@@ -165,113 +161,112 @@ color: #FFF;
   text-transform: uppercase;
 }
 
-.dark-theme .bs-buttom-name{
-  color: #FFF;
+.dark-theme .bs-buttom-name {
+  color: #fff;
 }
 
 /* Styles for mobile phones*/
 @media screen and (max-width: 767px) {
+  .book-category-list .bs-book-item:nth-child(n + 2) {
+    display: none;
+  }
 
-.book-category-list .bs-book-item:nth-child(n + 2) {
-  display: none;
-}
+  .book-category-list {
+    align-content: center;
+  }
 
-.book-category-list {
-  align-content: center;
-}
+  .bs-book-list {
+    display: flex;
+    flex-direction: column;
+  }
 
-.bs-book-list {
-  display: flex;
-  flex-direction: column;
-}
+  .bs-book-list-fil {
+    display: flex;
+    flex-direction: column;
+  }
 
-.bs-book-list-fil {
-  display: flex;
-  flex-direction: column;
-}
-
-.bs-book-item-fil {
-  display: flex;
-  width: 335px;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 40px;
-}
-
+  .bs-book-item-fil {
+    display: flex;
+    width: 335px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
 }
 
 /* Styles for tablets*/
 @media screen and (min-width: 768px) {
-.Books-best-sellers-text {
-  font-size: 48px;
-  line-height: 52px;
-  letter-spacing: -1.92px;
-  margin-top: 98px;
-  margin-bottom: 40px;
-  margin-left: 32px;
-  max-width: 768px;
-}
+  .Books-best-sellers-text {
+    font-size: 48px;
+    line-height: 52px;
+    letter-spacing: -1.92px;
 
-.bs-h3 {
-  line-height: 24px;
-}
+    margin-bottom: 40px;
+    margin-left: 32px;
+    max-width: 768px;
+  }
 
-.bs-book-image {
-  min-width: 218px;
-  height: 316px;
-  border-radius: 8px;
-  background: url(<pah-to-image>), lightgray 1.199px -15.113px / 101.376% 105.645% no-repeat;
-}
+  .bs-h3 {
+    line-height: 24px;
+  }
 
-.book-category-list {
-  display: flex;
-  flex-wrap: nowrap;
-  /* overflow: hidden; */
-  padding-left: 32px;
-  padding-right: 32px;
-  max-width: 1439px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .bs-book-image {
+    min-width: 218px;
+    height: 316px;
+    border-radius: 8px;
+    background: url(<pah-to-image>),
+      lightgray 1.199px -15.113px / 101.376% 105.645% no-repeat;
+  }
 
-.bs-book-list .bs-book-item:nth-child(n+4) {
-  display: none;
-}
+  .book-category-list {
+    display: flex;
+    flex-wrap: nowrap;
+    /* overflow: hidden; */
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 1439px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.bs-book-list {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 25px;
-  margin-bottom: 20px;
-}
+  .bs-book-list .bs-book-item:nth-child(n + 4) {
+    display: none;
+  }
 
-.bs-book-list-fil {
-  row-gap: 40px;
-  margin-bottom: 100px;
-}
-    
-.bs-book-item {
-  margin-bottom: 0px;
-  max-width: 218px;
-  align-content: flex-end;
-}
+  .bs-book-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 25px;
+    margin-bottom: 20px;
+  }
 
-.title-book {
-  width: 218px;
-}
+  .bs-book-list-fil {
+    row-gap: 40px;
+    margin-bottom: 100px;
+  }
 
-.author-book {
-  width: 218px;
-}
+  .bs-book-item {
+    margin-bottom: 0px;
+    max-width: 218px;
+    align-content: flex-end;
+  }
 
-.bs-book-item-fil {
-  margin-bottom: 0px;
-  max-width: 218px;
-}
+  .title-book {
+    width: 218px;
+  }
 
-.bs-buttom{
-  align-self: flex-end;
-}
+  .author-book {
+    width: 218px;
+  }
+
+  .bs-book-item-fil {
+    margin-bottom: 0px;
+    max-width: 218px;
+  }
+
+  .bs-buttom {
+    align-self: flex-end;
+  }
 }
 
 /* Styles for desctop*/
@@ -318,10 +313,10 @@ color: #FFF;
     padding-right: 24px;
     max-width: 1440px;
   }
-  
-.bs-book-list .bs-book-item {
-  display: block !important;
-}
+
+  .bs-book-list .bs-book-item {
+    display: block !important;
+  }
 
   .bs-book-list {
     display: flex;
@@ -359,12 +354,11 @@ color: #FFF;
     margin-top: 40px;
     margin-bottom: 32px;
   }
-        
+
   .bs-book-item-fil {
     margin-bottom: 0px;
   }
 }
-
 
 /* scroll button */
 body,
@@ -391,7 +385,6 @@ html {
   height: 24px;
   transition: transform 0.3s;
   padding: 5.569px;
-
 }
 
 #scroll-btn:hover .scroll-icon {
